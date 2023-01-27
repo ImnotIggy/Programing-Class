@@ -1,0 +1,95 @@
+########
+#import modules
+#######
+#Game Title: "Find the missing toilet paper"
+#Setting: Michael's house living Room
+#You had just come back from taco bell and find out that you really need to go to the bathroom
+#You try finding your way to the bathroom and see that theres no toilet paper
+#You need to go and search for toilet paper to be able to use the bathroom
+########
+#GlobalVariable:
+#True and False to collect toilet paper
+#define functions
+#######
+def start():
+    print("Welcome!")
+    LivingRoom()
+
+def LivingRoom():
+    print("You are in Living Room")
+    move = input("\nWhere would you like to go? Say one of these choices:\n\tkitchen\n\tup stairs\n")
+    if move.lower() == "kitchen":
+        Kitchen()
+    elif move.lower() == "up stairs":
+        upstairs()
+    else:
+        #TODO: what should happen if they type something else?
+        pass
+
+def Kitchen():
+    print("You are in kitchen")
+    move = input("\nWhere would you like to go? Say one of these choices:\n\tliving room\n\tback yard\n")
+    if move.lower() == "living room":
+        LivingRoom()
+    elif move.lower() == "back yard":
+        BackYard()
+    else:
+        #TODO: what should happen if they type something else?
+        pass
+
+def BackYard():
+    print("You are in back yard")
+    print ("Nothing here just some nice Fresh Air")
+    move = input("\nWhere would you like to go? Say one of these choices:\n\tkitchen\n")
+    if move.lower() == "kitchen":
+        Kitchen()
+    else:
+        #TODO: what should happen if they type something else?
+        pass
+
+def Bathroom():
+    if toiletpaper == False: 
+        print("You are in bathroom")
+        print ("Oh no there is no tilet paper :-0 i guess we need to find some toilet paper")
+        move = input("\nWhere would you like to go? Say one of these choices:\n\ttoilet paper closet\n\tup stairs\n")
+        if move.lower() == "toilet paper closet":
+            ToiletPapercloset()
+        elif move.lower() == "up stairs":
+            upstairs()
+        else:
+            ##
+            pass
+    else:
+        print ("Congratulations You Found Toilet Paper!!!")
+
+def upstairs():
+    print("You are up stairs")
+    move = input("\nWhere would you like to go? Say one of these choices:\n\tliving room\n\tbathroom\n")
+    if move.lower() == "bathroom":
+        Bathroom()
+    elif move.lower() == "living room":
+        LivingRoom()
+    else:
+        #TODO: what should happen if they type something else?
+        pass
+
+def ToiletPapercloset():
+    print("You are in toilet paper closet")
+    print ("you have found the missing toliet paper to use the bathroom") 
+    global toiletpaper
+    toiletpaper = True
+    move = input("\nWhere would you like to go? Say one of these choices:\n\tbathroom\n\tup stairs\n")
+    if move.lower() == "bathroom":
+        Bathroom()
+    elif move.lower() == "up stairs":
+        upstairs()
+    else:
+        ###
+        pass
+
+########
+#main
+#######
+#TODO: Add some global variables
+toiletpaper = False
+start()
